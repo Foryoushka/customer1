@@ -23,7 +23,6 @@ describe('should check if it is a correct page with logo', function () {
         const actualLogo = $(sel.logoHeader).isDisplayed();
         expect(actualLogo).to.be.true;
     });
-
 });
 
 describe('should check Main menu bar', function() {
@@ -49,7 +48,6 @@ describe('should check Main menu bar', function() {
         const careCoordinationIsDisplayed = $(sel.careCoordination).waitForDisplayed();
         expect(careCoordinationIsDisplayed).to.be.true;
     });
-
 
     it('should have `For your role` element in Main Menu', function () {
         browser.url('./.');
