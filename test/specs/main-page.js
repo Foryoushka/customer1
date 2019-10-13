@@ -1,6 +1,6 @@
 import { expect } from 'chai' ;
 import exp from '../expected/main-page'
-import sel from './../selectors/main-page'
+import sel from '../selectors/main-page'
 
 before( function () {
     browser.url('./.');
