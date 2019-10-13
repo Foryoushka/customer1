@@ -19,6 +19,11 @@ export default {
     careers: '//div[@class="nb2018-navigation-wrap"]//a[contains(text(),"Careers")]',
     innovateJax: '//div[@class="nb2018-navigation-wrap"]//a[contains(text(),"Innovate Jax")]',
     loginElement: '//div[@class="nb2018-navigation-wrap"]//a[contains(text(),"Login")]',
-    scheduleDemoButton: '//div[@class="nb2018-navigation-wrap"]//a[@title="Schedule Demo"]'
-    //menuBarItems: '//div[@role="navigation"]//li', '//div[@role="navigation"]//li[@role="menu"]'
+    scheduleDemoButton: '//div[@class="nb2018-navigation-wrap"]//a[@title="Schedule Demo"]',
+    footerBottom: '//div[@class="nb2018-footer-bottom"]',
+    subscribeToBlogButton: '//form[@id="hsForm_09126227-199b-4ede-870e-28dfebd04250"]//input[@class="hs-button primary large"]',
+    submittedSubsription: '//div[@class="submitted-message hs-main-font-element hs-form-09126227-199b-4ede-870e-28dfebd04250 hs-form-09126227-199b-4ede-870e-28dfebd04250_bc6e019d-011f-4e28-9d33-62ab6b57a604"]',
+    subscribeEmailField: '//input[@id="email-09126227-199b-4ede-870e-28dfebd04250"]',
+    subscribeMessage: '//label[@class="hs-main-font-element"]'
+
 }

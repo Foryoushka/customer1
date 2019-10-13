@@ -18,7 +18,10 @@ export default {
     careersPageTitle: 'Forcura Careers',
     innovateJaxPageTitle: 'Innovate Jax Podcast | Powered By Forcura',
     loginPageTitle: 'Forcura',
-    scheduleDemoTitle: 'Forcura | Schedule a Demo'
+    scheduleDemoTitle: 'Forcura | Schedule a Demo',
+    subscribeSuccessMessage: 'Thanks for submitting the form.',
+    subsribeEmptyFieldMessage: 'Please complete all required fields.',
+    subscribeWrongEmailMessage: 'PLEASE CHANGE YOUR EMAIL ADDRESS TO CONTINUE.'
 
 
 }

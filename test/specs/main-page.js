@@ -1,6 +1,7 @@
 import { expect } from 'chai' ;
 import exp from '../expected/main-page'
 import sel from '../selectors/main-page'
+import data from './../data/main-page'
 
 before ( function () {
     browser.url('./.');
@@ -259,6 +260,27 @@ describe('should check Main menu bar', function() {
         $(sel.scheduleDemoButton).click();
         let actualTitle = browser.getTitle();
         expect(actualTitle).to.be.equal(exp.scheduleDemoTitle);
+    });
+});
+
+describe('should check footer-bottom', function () {
+
+    it('should have footer-bottom', function () {
+        browser.url('./.');
+        const footerBottomIsDisplayed = $(sel.footerBottom).isDisplayed();
+        expect(footerBottomIsDisplayed).to.be.true;
+    });
+
+    it('should have `Subscribe to our blog` button', function () {
+        const subscribeToBlogButtonisDisplayed = $(sel.subscribeToBlogButton).isDisplayed();
+        expect(subscribeToBlogButtonisDisplayed).to.be.true;
+    });
+
+    it('should subscribe to blog ', function () {
+        $(sel.subscribeEmailField).setValue(data.email);
+        $(sel.subscribeToBlogButton).click();
+        const actualMessage = $(sel.subscribeMessage).getText();
+        expect(actualMessage).to.be.equal(exp.subscribeWrongEmailMessage);
     });
 });
 
