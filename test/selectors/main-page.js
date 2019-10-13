@@ -18,6 +18,7 @@ export default {
     newsroom: '//div[@class="nb2018-navigation-wrap"]//a[contains(text(),"Newsroom")]',
     careers: '//div[@class="nb2018-navigation-wrap"]//a[contains(text(),"Careers")]',
     innovateJax: '//div[@class="nb2018-navigation-wrap"]//a[contains(text(),"Innovate Jax")]',
-    loginElement: '//div[@class="nb2018-navigation-wrap"]//a[contains(text(),"Login")]'
+    loginElement: '//div[@class="nb2018-navigation-wrap"]//a[contains(text(),"Login")]',
+    scheduleDemoButton: '//div[@class="nb2018-navigation-wrap"]//a[@title="Schedule Demo"]'
     //menuBarItems: '//div[@role="navigation"]//li', '//div[@role="navigation"]//li[@role="menu"]'
 }

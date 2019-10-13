@@ -17,7 +17,8 @@ export default {
     newsroomPageTitle: 'Forcura News Room',
     careersPageTitle: 'Forcura Careers',
     innovateJaxPageTitle: 'Innovate Jax Podcast | Powered By Forcura',
-    loginPageTitle: 'Forcura'
+    loginPageTitle: 'Forcura',
+    scheduleDemoTitle: 'Forcura | Schedule a Demo'
 
 
 }

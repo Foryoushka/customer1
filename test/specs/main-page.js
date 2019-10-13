@@ -2,18 +2,16 @@ import { expect } from 'chai' ;
 import exp from '../expected/main-page'
 import sel from '../selectors/main-page'
 
-before( function () {
+before ( function () {
     browser.url('./.');
     browser.maximizeWindow();
 });
 
-describe('should check if it is a correct page with logo', function () { //define suite title by passing a string
+describe('should check if it is a correct page with logo', function () {
 
-    it('should get title', function () { //define test title by passing a string
-        browser.url('/'); //open baseUrl + string passed in .url() function
-        let title = browser.getTitle(); //get page title and assign it to the "title" variable
-        browser.pause(2000); //just pause to visually see that something is happening on the page
-        expect(title).to.eql(exp.mainPageTitle); //compare {title} (actual) and "Bug Tracker" (expected)
+    it('should get title', function () {
+        let actualTitle = browser.getTitle();
+        expect(actualTitle).to.eql(exp.mainPageTitle);
     });
 
     it('should open the main page with correct h1', () => {
@@ -35,12 +33,6 @@ describe('should check Main menu bar', function() {
         expect(actualMainMenu).to.be.true;
     });
 
-    // it('should have 7 elements in main menu', function () {
-    //     const actualMenuLength = $(sel.mainMenuBarArray).length;
-    //     expect(actualMenuLength).to.be.equal(7);
-    //
-    // });
-
     it('should have `Platform` element in Main Menu', function () {
         const actualPlatformElement = $(sel.platformMenuElement).isDisplayed();
         expect(actualPlatformElement).to.be.true;
@@ -58,56 +50,9 @@ describe('should check Main menu bar', function() {
         expect(careCoordinationIsDisplayed).to.be.true;
     });
 
-    it('should redirect to `Platform` page', function () {
-        const currentWindow = browser.getWindowHandles()[0];
-        $(sel.platformMenuElement).click();
-        const handles = browser.getWindowHandles();
-        //console.log('HANDLES', handles);
-        const newWindow = handles.filter(el => el !==  currentWindow)[0];
-        if (newWindow) {
-              browser.switchToWindow(newWindow);
-              let actualTitle = browser.getTitle();
-              //let actualH1 = $(sel.h1).getText();
-              expect(actualTitle).to.be.equal(exp.platformPageTitle)
-              //expect(actualH1).to.be.equal(exp.h1PlatformText);
-              browser.closeWindow();
-              browser.switchToWindow(currentWindow);
-        }
-    });
-
-    it('should redirect to `Document Workflow` page', function () {
-        $(sel.platformMenuElement).moveTo();
-        const currentWindow = browser.getWindowHandles()[0];
-        $(sel.documentWorkflow).click();
-        const handles = browser.getWindowHandles();
-        console.log('HANDLES', handles);
-        const newWindow = handles.filter(el => el !== currentWindow)[0];
-        if(newWindow){
-            browser.switchToWindow(newWindow);
-            let actualTitle = browser.getTitle();
-            expect(actualTitle).to.be.equal(exp.documentWorkflowPageTitle)
-            browser.closeWindow();
-            browser.switchToWindow(currentWindow);
-        }
-    });
-
-    it('should redirect to `Care Coordination` page', function () {
-        $(sel.platformMenuElement).moveTo();
-        const currentWindow = browser.getWindowHandles()[0];
-        $(sel.careCoordination).click();
-        const handles = browser.getWindowHandles();
-        console.log('HANDLES', handles);
-        const newWindow = handles.filter(el => el !== currentWindow)[0];
-        if(newWindow){
-            browser.switchToWindow(newWindow);
-            let actualTitle = browser.getTitle();
-            expect(actualTitle).to.be.equal(exp.careCoordinationPageTitle)
-            browser.closeWindow();
-            browser.switchToWindow(currentWindow);
-        }
-    });
 
     it('should have `For your role` element in Main Menu', function () {
+        browser.url('./.');
         const actualForYourRoleElement = $(sel.forYourRoleMenuElement).waitForDisplayed();
         expect(actualForYourRoleElement).to.be.true;
     });
@@ -131,117 +76,27 @@ describe('should check Main menu bar', function() {
     });
 
     it('should not redirect anywhere from `For Your Role', function () {
-        const currentWindow = browser.getWindowHandles()[0];
         $(sel.forYourRoleMenuElement).click();
-        const handles = browser.getWindowHandles();
-        console.log('HANDLES', handles);
-        const newWindow = handles.filter(el => el !== currentWindow)[0];
-        if(newWindow){
-            browser.switchToWindow(newWindow);
-            let actualTitle = browser.getTitle();
-            //let actualH1 = $(sel.h1).getText();
-            expect(actualTitle).to.be.equal(exp.mainPageTitle)
-            //expect(actualH1).to.be.equal(exp.h1);
-            browser.closeWindow();
-            browser.switchToWindow(currentWindow);
-        }
+        let actualTitle = browser.getTitle();
+        expect(actualTitle).to.be.equal(exp.mainPageTitle);
     });
-
-    it('should redirect to `Executive` page', function () {
-        $(sel.forYourRoleMenuElement).moveTo();
-        const currentWindow = browser.getWindowHandles()[0];
-        $(sel.executive).click();
-        const handles = browser.getWindowHandles();
-        console.log('HANDLES', handles);
-        const newWindow = handles.filter(el => el !== currentWindow)[0];
-        if(newWindow){
-            browser.switchToWindow(newWindow);
-            let actualTitle = browser.getTitle();
-            expect(actualTitle).to.be.equal(exp.executivePageTitle)
-            browser.closeWindow();
-            browser.switchToWindow(currentWindow);
-        }
-    });
-
-    it('should redirect to `Technical` page', function () {
-        $(sel.forYourRoleMenuElement).moveTo();
-        const currentWindow = browser.getWindowHandles()[0];
-        $(sel.technical).click();
-        const handles = browser.getWindowHandles();
-        console.log('HANDLES', handles);
-        const newWindow = handles.filter(el => el !== currentWindow)[0];
-        if(newWindow){
-            browser.switchToWindow(newWindow);
-            let actualTitle = browser.getTitle();
-            expect(actualTitle).to.be.equal(exp.technicalPageTitle)
-            browser.closeWindow();
-            browser.switchToWindow(currentWindow);
-        }
-    });
-
-    it('should redirect to `Administrator` page', function () {
-        $(sel.forYourRoleMenuElement).moveTo();
-        const currentWindow = browser.getWindowHandles()[0];
-        $(sel.administrator).click();
-        const handles = browser.getWindowHandles();
-        console.log('HANDLES', handles);
-        const newWindow = handles.filter(el => el !== currentWindow)[0];
-        if(newWindow){
-            browser.switchToWindow(newWindow);
-            let actualTitle = browser.getTitle();
-            expect(actualTitle).to.be.equal(exp.administratorPageTitle)
-            browser.closeWindow();
-            browser.switchToWindow(currentWindow);
-        }
-    });
-
-
 
     it('should have `Blog` element in Main Menu', function () {
+        browser.url('./.');
         const actualBlogElement = $(sel.blogElement).waitForDisplayed();
         expect(actualBlogElement).to.be.true;
     });
 
-    it('should redirect to `Blog` page', function () {
-        const currentWindow = browser.getWindowHandles()[0];
-        $(sel.blogElement).click();
-        const handles = browser.getWindowHandles();
-        console.log('HANDLES', handles);
-        const newWindow = handles.filter(el => el !== currentWindow)[0];
-        if(newWindow){
-            browser.switchToWindow(newWindow);
-            let actualTitle = browser.getTitle();
-            //let actualH1 = $(sel.h1).getText();
-            expect(actualTitle).to.be.equal(exp.blogPageTitle)
-            //expect(actualH1).to.be.equal(exp.h1BlogText);
-            browser.closeWindow();
-            browser.switchToWindow(currentWindow);
-        }
-    });
-
     it('should have `Resources` element in Main Menu', function () {
+        browser.url('./.');
         const actualResourcesElement = $(sel.resourcesElement).waitForDisplayed();
         expect(actualResourcesElement).to.be.true;
     });
 
-    it('should redirect to `Resources` page', function () {
-        const currentWindow = browser.getWindowHandles()[0];
-        $(sel.resourcesElement).click();
-        const handles = browser.getWindowHandles();
-        console.log('HANDLES', handles);
-        const newWindow = handles.filter(el => el !== currentWindow)[0];
-        if(newWindow){
-            browser.switchToWindow(newWindow);
-            let actualTitle = browser.getTitle();
-            expect(actualTitle).to.be.equal(exp.resourcesPageTitle);
-            browser.closeWindow();
-            browser.switchToWindow(currentWindow);
-        }
-    });
-
     it('should have `Company` element in Main Menu', function () {
-        const actualBlogElement = $(sel.companyElement).waitForDisplayed();
-        expect(actualBlogElement).to.be.true;
+         browser.url('./.');
+         const actualBlogElement = $(sel.companyElement).waitForDisplayed();
+         expect(actualBlogElement).to.be.true;
     });
 
     it('should have About Us in `Company` drop down menu', function () {
@@ -281,137 +136,131 @@ describe('should check Main menu bar', function() {
     });
 
     it('should not redirect anywhere from `Company', function () {
-        const currentWindow = browser.getWindowHandles()[0];
         $(sel.companyElement).click();
-        const handles = browser.getWindowHandles();
-        console.log('HANDLES', handles);
-        const newWindow = handles.filter(el => el !== currentWindow)[0];
-        if(newWindow){
-            browser.switchToWindow(newWindow);
-            let actualTitle = browser.getTitle();
-            //let actualH1 = $(sel.h1).getText();
-            expect(actualTitle).to.be.equal(exp.mainPageTitle);
-            //expect(actualH1).to.be.equal(exp.h1);
-            browser.closeWindow();
-            browser.switchToWindow(currentWindow);
-        }
-    });
-
-    it('should redirect to `About Us` page', function () {
-        $(sel.companyElement).moveTo();
-        const currentWindow = browser.getWindowHandles()[0];
-        $(sel.aboutUs).click();
-        const handles = browser.getWindowHandles();
-        console.log('HANDLES', handles);
-        const newWindow = handles.filter(el => el !== currentWindow)[0];
-        if(newWindow){
-            browser.switchToWindow(newWindow);
-            let actualTitle = browser.getTitle();
-            expect(actualTitle).to.be.equal(exp.aboutUsPageTitle);
-            browser.closeWindow();
-            browser.switchToWindow(currentWindow);
-        }
-    });
-
-    it('should redirect to `Customers` page', function () {
-        $(sel.companyElement).moveTo();
-        const currentWindow = browser.getWindowHandles()[0];
-        $(sel.customers).click();
-        const handles = browser.getWindowHandles();
-        console.log('HANDLES', handles);
-        const newWindow = handles.filter(el => el !== currentWindow)[0];
-        if(newWindow){
-            browser.switchToWindow(newWindow);
-            let actualTitle = browser.getTitle();
-            expect(actualTitle).to.be.equal(exp.customersPageTitle);
-            browser.closeWindow();
-            browser.switchToWindow(currentWindow);
-        }
-    });
-
-    it('should redirect to `Partners` page', function () {
-        $(sel.companyElement).moveTo();
-        const currentWindow = browser.getWindowHandles()[0];
-        $(sel.partners).click();
-        const handles = browser.getWindowHandles();
-        console.log('HANDLES', handles);
-        const newWindow = handles.filter(el => el !== currentWindow)[0];
-        if(newWindow){
-            browser.switchToWindow(newWindow);
-            let actualTitle = browser.getTitle();
-            expect(actualTitle).to.be.equal(exp.partnersPageTitle);
-            browser.closeWindow();
-            browser.switchToWindow(currentWindow);
-        }
-    });
-
-    it('should redirect to `Newsroom` page', function () {
-        $(sel.companyElement).moveTo();
-        const currentWindow = browser.getWindowHandles()[0];
-        $(sel.newsroom).click();
-        const handles = browser.getWindowHandles();
-        console.log('HANDLES', handles);
-        const newWindow = handles.filter(el => el !== currentWindow)[0];
-        if(newWindow){
-            browser.switchToWindow(newWindow);
-            let actualTitle = browser.getTitle();
-            expect(actualTitle).to.be.equal(exp.newsroomPageTitle);
-            browser.closeWindow();
-            browser.switchToWindow(currentWindow);
-        }
-    });
-
-    it('should redirect to `Careers` page', function () {
-        $(sel.companyElement).moveTo();
-        const currentWindow = browser.getWindowHandles()[0];
-        $(sel.careers).click();
-        const handles = browser.getWindowHandles();
-        console.log('HANDLES', handles);
-        const newWindow = handles.filter(el => el !== currentWindow)[0];
-        if(newWindow){
-            browser.switchToWindow(newWindow);
-            let actualTitle = browser.getTitle();
-            expect(actualTitle).to.be.equal(exp.careersPageTitle);
-            browser.closeWindow();
-            browser.switchToWindow(currentWindow);
-        }
-    });
-
-    it('should redirect to `Innovate Jax` page', function () {
-        $(sel.companyElement).moveTo();
-        const currentWindow = browser.getWindowHandles()[0];
-        $(sel.innovateJax).click();
-        const handles = browser.getWindowHandles();
-        console.log('HANDLES', handles);
-        const newWindow = handles.filter(el => el !== currentWindow)[0];
-        if(newWindow){
-            browser.switchToWindow(newWindow);
-            let actualTitle = browser.getTitle();
-            expect(actualTitle).to.be.equal(exp.innovateJaxPageTitle);
-            browser.closeWindow();
-            browser.switchToWindow(currentWindow);
-        }
+        let actualTitle = browser.getTitle();
+        expect(actualTitle).to.be.equal(exp.mainPageTitle);
     });
 
     it('should have `Login` element in Main Menu', function () {
+        browser.url('./.');
         const actualLoginElement = $(sel.loginElement).waitForDisplayed();
         expect(actualLoginElement).to.be.true;
     });
 
-    it('should redirect to `Login` page', function () {
-        const currentWindow = browser.getWindowHandles()[0];
-        $(sel.loginElement).click();
-        const handles = browser.getWindowHandles();
-        console.log('HANDLES', handles);
-        const newWindow = handles.filter(el => el !== currentWindow)[0];
-        if(newWindow){
-            browser.switchToWindow(newWindow);
-            let actualTitle = browser.getTitle();
-            expect(actualTitle).to.be.equal(exp.loginPageTitle);
-            browser.closeWindow();
-            browser.switchToWindow(currentWindow);
-        }
+    it('should have `Schedule demo` button in Main Menu', function () {
+        browser.url('./.');
+        const actualScheduleDemoButton = $(sel.scheduleDemoButton).waitForDisplayed();
+        expect(actualScheduleDemoButton).to.be.true;
     });
 
+    beforeEach( function () {
+       browser.url('./.');
+    })
+
+    it('should redirect to `Platform` page', function () {
+        $(sel.platformMenuElement).click();
+        let actualTitle = browser.getTitle();
+        expect(actualTitle).to.be.equal(exp.platformPageTitle);
+    });
+
+    it('should redirect to `Document Workflow` page', function () {
+        $(sel.platformMenuElement).moveTo();
+        $(sel.documentWorkflow).click();
+        let actualTitle = browser.getTitle();
+        expect(actualTitle).to.be.equal(exp.documentWorkflowPageTitle);
+    });
+
+    it('should redirect to `Care Coordination` page', function () {
+        $(sel.platformMenuElement).moveTo();
+        $(sel.careCoordination).click();
+        let actualTitle = browser.getTitle();
+        expect(actualTitle).to.be.equal(exp.careCoordinationPageTitle);
+    });
+
+    it('should redirect to `Executive` page', function () {
+        $(sel.forYourRoleMenuElement).moveTo();
+        $(sel.executive).click();
+        let actualTitle = browser.getTitle();
+        expect(actualTitle).to.be.equal(exp.executivePageTitle);
+    });
+
+    it('should redirect to `Technical` page', function () {
+        $(sel.forYourRoleMenuElement).moveTo();
+        $(sel.technical).click();
+        let actualTitle = browser.getTitle();
+    });
+
+    it('should redirect to `Administrator` page', function () {
+        $(sel.forYourRoleMenuElement).moveTo();
+        $(sel.administrator).click();
+        let actualTitle = browser.getTitle();
+        expect(actualTitle).to.be.equal(exp.administratorPageTitle)
+    });
+
+    it('should redirect to `Blog` page', function () {
+        $(sel.blogElement).click();
+        let actualTitle = browser.getTitle();
+        expect(actualTitle).to.be.equal(exp.blogPageTitle)
+    });
+
+    it('should redirect to `Resources` page', function () {
+        $(sel.resourcesElement).click();
+        let actualTitle = browser.getTitle();
+        expect(actualTitle).to.be.equal(exp.resourcesPageTitle);
+    });
+
+    it('should redirect to `About Us` page', function () {
+        $(sel.companyElement).moveTo();
+        $(sel.aboutUs).click();
+        let actualTitle = browser.getTitle();
+        expect(actualTitle).to.be.equal(exp.aboutUsPageTitle);
+    });
+
+    it('should redirect to `Customers` page', function () {
+        $(sel.companyElement).moveTo();
+        $(sel.customers).click();
+        let actualTitle = browser.getTitle();
+        expect(actualTitle).to.be.equal(exp.customersPageTitle);
+    });
+
+    it('should redirect to `Partners` page', function () {
+        $(sel.companyElement).moveTo();
+        $(sel.partners).click();
+        let actualTitle = browser.getTitle();
+        expect(actualTitle).to.be.equal(exp.partnersPageTitle);
+    });
+
+    it('should redirect to `Newsroom` page', function () {
+        $(sel.companyElement).moveTo();
+        $(sel.newsroom).click();
+        let actualTitle = browser.getTitle();
+        expect(actualTitle).to.be.equal(exp.newsroomPageTitle);
+    });
+
+    it('should redirect to `Careers` page', function () {
+        $(sel.companyElement).moveTo();
+        $(sel.careers).click();
+        let actualTitle = browser.getTitle();
+        expect(actualTitle).to.be.equal(exp.careersPageTitle);
+    });
+
+    it('should redirect to `Innovate Jax` page', function () {
+        $(sel.companyElement).moveTo();
+        $(sel.innovateJax).click();
+        let actualTitle = browser.getTitle();
+        expect(actualTitle).to.be.equal(exp.innovateJaxPageTitle);
+    });
+
+    it('should redirect to `Login` page', function () {
+        $(sel.loginElement).click();
+        let actualTitle = browser.getTitle();
+        expect(actualTitle).to.be.equal(exp.loginPageTitle);
+    });
+
+    it('should redirect to `Schedule Demo` page', function () {
+        $(sel.scheduleDemoButton).click();
+        let actualTitle = browser.getTitle();
+        expect(actualTitle).to.be.equal(exp.scheduleDemoTitle);
+    });
 });
 
