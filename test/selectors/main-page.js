@@ -21,9 +21,17 @@ export default {
     loginElement: '//div[@class="nb2018-navigation-wrap"]//a[contains(text(),"Login")]',
     scheduleDemoButton: '//div[@class="nb2018-navigation-wrap"]//a[@title="Schedule Demo"]',
     footerBottom: '//div[@class="nb2018-footer-bottom"]',
-    subscribeToBlogButton: '//form[@id="hsForm_09126227-199b-4ede-870e-28dfebd04250"]//input[@class="hs-button primary large"]',
-    submittedSubsription: '//div[@class="submitted-message hs-main-font-element hs-form-09126227-199b-4ede-870e-28dfebd04250 hs-form-09126227-199b-4ede-870e-28dfebd04250_bc6e019d-011f-4e28-9d33-62ab6b57a604"]',
+    subscribeToBlogButton: '//input[@class="hs-button primary large"]',
+    submittedSubscription: '//div[@data-reactid=".hbspt-forms-0"]',
     subscribeEmailField: '//input[@id="email-09126227-199b-4ede-870e-28dfebd04250"]',
-    subscribeMessage: '//label[@class="hs-main-font-element"]'
+    subscribeMessage: '//label[@class="hs-main-font-element"]',
+    iframe: '//*[@id="hubspot-messages-iframe-container"]/iframe',
+    iframeInitialMessage: '//div[@class="initial-message-bubble"]//p[contains(text(), "Got any questions? I\'m happy to help.")]',
+    iframeOpenChatButton: '//button[@aria-label="Open live chat"]',
+    iframeCloseChatButton: '//button[@aria-label="Close live chat"]',
+    iframeChat: '//div[@class="VisitorWidgetStyleWrapper__WidgetStyleWrapper-hGFLTF iSMkkU"]',
+    primaryChatMessage: '//div[@class="ContentText__ContentTextWrapper-fUdYiW hnNGBv"]/div[contains(text(), "Got any questions? I\'m happy to help.")]',
+    secondaryChatMessage: '//div[@class="ContentText__ContentTextWrapper-fUdYiW hnNGBv"]//div[contains(text(), "Do you have a sales inquiry or need product support?")]'
+
 
 }

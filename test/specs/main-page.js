@@ -276,11 +276,73 @@ describe('should check footer-bottom', function () {
         expect(subscribeToBlogButtonisDisplayed).to.be.true;
     });
 
-    it('should subscribe to blog ', function () {
-        $(sel.subscribeEmailField).setValue(data.email);
+    // *commented to not spam
+    // it('should subscribe to blog with correct email', function () {
+    //     $(sel.subscribeEmailField).setValue(data.email);
+    //     $(sel.subscribeToBlogButton).click();
+    //     const actualMessage = $(sel.submittedSubscription).getText();
+    //     console.log(actualMessage);
+    //     expect(actualMessage).to.be.equal(exp.subscribeSuccessMessage);
+    // });
+
+    it('should not subscribe to blog with wrong email', function () {
+        browser.url('./.');
+        $(sel.subscribeEmailField).setValue(data.wrongEmail);
         $(sel.subscribeToBlogButton).click();
         const actualMessage = $(sel.subscribeMessage).getText();
         expect(actualMessage).to.be.equal(exp.subscribeWrongEmailMessage);
     });
+
+    it('should not subscribe to blog with empty email', function () {
+        $(sel.subscribeEmailField).setValue(data.emptyEmail);
+        $(sel.subscribeToBlogButton).click();
+        const actualMessage = $(sel.subscribeMessage).getText();
+        expect(actualMessage).to.be.equal(exp.subsribeEmptyFieldMessage);
+    });
 });
 
+describe('should check iframe', function () {
+
+    it('should have iframe to be displayed', function () {
+        const ifameIsDisplayed = $(sel.iframe).isDisplayed();
+        expect(ifameIsDisplayed).to.be.true;
+        });
+
+    it('should switch focus to iframe', function () {
+        const myFrame = $(sel.iframe);
+        browser.switchToFrame(myFrame);
+        });
+
+    it('should have iframe initial message', function () {
+        const InitialTMessageIsDisplayed = $(sel.iframeInitialMessage).waitForDisplayed();
+        expect(InitialTMessageIsDisplayed).to.be.true;
+    });
+
+    it('should have iframe chat button', function () {
+        const chatButtonIsDisplayed = $(sel.iframeOpenChatButton).waitForDisplayed();
+        expect(chatButtonIsDisplayed).to.be.true;
+    });
+
+    it('should have iframe live chat', function () {
+        $(sel.iframeOpenChatButton).click();
+        const chatIsDisplayed = $(sel.iframeChat).waitForDisplayed();
+        expect (chatIsDisplayed).to.be.true;
+        $(sel.iframeCloseChatButton).click();
+    });
+
+    it('should open iframe live chat thru initial message', function () {
+        $(sel.iframeInitialMessage).click();
+        const chatIsDisplayed = $(sel.iframeChat).waitForDisplayed();
+        expect(chatIsDisplayed).to.be.true;
+    });
+
+    it('should have correct primary chat message', function () {
+        const primaryChatMessageIsDisplayed = $(sel.primaryChatMessage).isDisplayed();
+        expect(primaryChatMessageIsDisplayed).to.be.true;
+    });
+
+    it('should have correct secondary chat message', function () {
+        const secondaryChatMessageIsDisplayed = $(sel.secondaryChatMessage).isDisplayed();
+        expect(secondaryChatMessageIsDisplayed).to.be.true;
+    });
+});

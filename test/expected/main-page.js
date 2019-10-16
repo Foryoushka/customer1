@@ -20,7 +20,7 @@ export default {
     loginPageTitle: 'Forcura',
     scheduleDemoTitle: 'Forcura | Schedule a Demo',
     subscribeSuccessMessage: 'Thanks for submitting the form.',
-    subsribeEmptyFieldMessage: 'Please complete all required fields.',
+    subsribeEmptyFieldMessage: 'PLEASE COMPLETE ALL REQUIRED FIELDS.',
     subscribeWrongEmailMessage: 'PLEASE CHANGE YOUR EMAIL ADDRESS TO CONTINUE.'
 
 
