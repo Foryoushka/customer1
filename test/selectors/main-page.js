@@ -31,7 +31,17 @@ export default {
     iframeCloseChatButton: '//button[@aria-label="Close live chat"]',
     iframeChat: '//div[@class="VisitorWidgetStyleWrapper__WidgetStyleWrapper-hGFLTF iSMkkU"]',
     primaryChatMessage: '//div[@class="ContentText__ContentTextWrapper-fUdYiW hnNGBv"]/div[contains(text(), "Got any questions? I\'m happy to help.")]',
-    secondaryChatMessage: '//div[@class="ContentText__ContentTextWrapper-fUdYiW hnNGBv"]//div[contains(text(), "Do you have a sales inquiry or need product support?")]'
+    secondaryChatMessage: '//div[@class="ContentText__ContentTextWrapper-fUdYiW hnNGBv"]//div[contains(text(), "Do you have a sales inquiry or need product support?")]',
+    salesInquiryButton: '//span[contains(text(), "Sales Inquiry")]',
+    productSupportButton: '//span[contains(text(), "Product Support")]',
+    inquirySalesAnswer: '//div[contains(text(), "Okay. What question do you have?")]',
+    productSupportAnswer1: '//div[contains(text(), "To submit a support request please email ")]',
+    productSupportAnswer2: '//div[contains(text(), "A support representative will then reach out to you shortly.")]',
+    productSupportAnswer3: '//div[contains(text(), "Thank you.")]',
+    iframeChatPlaceholder: '//textarea[@placeholder="Write a message"]',
+    iframeUiIconLeft: '//span[@data-icon-name="left"]',
+    iframeUiIconRight: '//span[@data-icon-name="description"]'
+
 
 
 }

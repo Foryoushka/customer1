@@ -21,7 +21,8 @@ export default {
     scheduleDemoTitle: 'Forcura | Schedule a Demo',
     subscribeSuccessMessage: 'Thanks for submitting the form.',
     subsribeEmptyFieldMessage: 'PLEASE COMPLETE ALL REQUIRED FIELDS.',
-    subscribeWrongEmailMessage: 'PLEASE CHANGE YOUR EMAIL ADDRESS TO CONTINUE.'
+    subscribeWrongEmailMessage: 'PLEASE CHANGE YOUR EMAIL ADDRESS TO CONTINUE.',
+    iframeChatPlaceholderText: 'Focura is a great place to work!'
 
 
 }
