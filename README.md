@@ -144,7 +144,7 @@ What is the base url?
 Wait till the end of the installation process.
 
 <a name="babel"></a>
-## 3. Instal `Babel` to use JavaScript ES6 syntax
+## 3. Install `Babel` to use JavaScript ES6 syntax
 #### 3.1. Go back to the root folder and install necessary modules:
 ````
 npm install @babel/core @babel/cli @babel/preset-env @babel/register
