@@ -178,7 +178,7 @@ npm i chai
 #### 6.2  Run `git pull origin master`
 
 <a name="run-command-prompt-and-npm-test"></a>
-##7. Run command prompt and npm test
+## 7. Run command prompt and npm test
 #### 7.1. Run Command Prompt 
 #### 7.2. Run `npm test` from Command Prompt
 
