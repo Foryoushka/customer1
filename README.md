@@ -20,7 +20,7 @@ The Main page tests include the following groups:
 4. 'should check the functionality of the Chat iframe - interaction with a user'
 
 The careers page tests include the following groups:
-5. 'should check the prerequisites how to navigate from the career page to application form page'
+5.  'should check the prerequisites how to navigate from the career page to application form page'
 6. 'should application form for correct display and filling it in with test data'
 
 Results of the tests would be displayed in an interactive report which will run automatically after all the tests are completed.
