@@ -28,9 +28,11 @@ Results of the tests would be displayed in an interactive report which will run 
 ## Table of Contents
 1. [Prerequisites to install the tests on your local machine](#prerequisites) 
 2. [Modules installation and configuration](#modules)
-3. [Configuring Allure reporter](#allure)
-4. [Installation of `chai` module](#chai)
-5. [How to run all tests from a command prompt - Windows or Mac](#run-command-prompt-and-npm-test)
+3. [Installation of `Babel` to use JavaScript ES6 syntax](#babel)
+4. [Configuring Allure reporter](#allure)
+5. [Installation of `chai` module](#chai)
+6. [Pull all the project from Git](#pull-all-the-project-from-Git)
+7. [How to run all tests from a command prompt - Windows or Mac](#run-command-prompt-and-npm-test)
 
 ===
 
@@ -104,7 +106,7 @@ Do you want to run WebdriverIO commands synchronous or asynchronous?
 ````
 ````
 Where are your test specs located?
-> type ./test/*.js
+> ./test/specs/*.js
 **click Enter**
 ````
 ````
@@ -136,14 +138,21 @@ Level of logging verbosity
 ````
 ````
 What is the base url?
-> type https://reactbugtracker.com
+> type https://forcura.com
 **click Enter**
 ````
 Wait till the end of the installation process.
 
+<a name="babel"></a>
+## 3. Instal `Babel` to use JavaScript ES6 syntax
+#### 3.1. Go back to the root folder and install necessary modules:
+````
+npm install @babel/core @babel/cli @babel/preset-env @babel/register
+````
+
 <a name="allure"></a>
-## 3. Configuring Allure reporter:
-#### 3.1. Configure reporter in `wdio.conf.js`:
+## 4. Configuring Allure reporter:
+#### 4.1. Configure reporter in `wdio.conf.js`:
 Add the following code under `reporters: ['dot','spec','allure'],`:
 ````
     reporterOptions: {
@@ -152,19 +161,25 @@ Add the following code under `reporters: ['dot','spec','allure'],`:
         }
     },
 ````
-#### 3.2. Install Allure Commandline globally:
+#### 4.2. Install Allure Commandline globally:
 ````
 npm i allure-commandline -g
 ````
 <a name="chai"></a>
-## 4. Adding `chai` assertion library:
-#### 4.1. Install `chai` module:
+## 5. Adding `chai` assertion library:
+#### 5.1. Install `chai` module:
 ````
 npm i chai
 ````
+
+<a name="pull-all-the-project-from-Git"></a>
+## 6. Pulling all the project from Git
+#### 6.1. Run Command Prompt
+#### 6.2  Run `git pull origin master`
+
 <a name="run-command-prompt-and-npm-test"></a>
-##5. Run command prompt and npm test
-#### 5.1. Run Command Prompt 
-#### 5.2. Run `npm test` from Command Prompt
+##7. Run command prompt and npm test
+#### 7.1. Run Command Prompt 
+#### 7.2. Run `npm test` from Command Prompt
 
 
