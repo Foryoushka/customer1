@@ -26,8 +26,11 @@ The careers page tests include the following groups:
 Results of the tests would be displayed in an interactive report which will run automatically after all the tests are completed.
 
 ## Table of Contents
-1. [Prerequisites to install the tests on your desktop](#prerequisites) 
-2. [How to run all tests from a command prompt - Windows or Mac](#run-command-prompt-and-npm-test)
+1. [Prerequisites to install the tests on your local machine](#prerequisites) 
+2. [Modules installation and configuration](#modules)
+3. [Configuring Allure reporter](#allure)
+4. [Installation of `chai` module](#chai)
+5. [How to run all tests from a command prompt - Windows or Mac](#run-command-prompt-and-npm-test)
 
 ===
 
@@ -54,10 +57,114 @@ https://developer.apple.com/xcode/
 https://www.python.org/downloads/release/python-2716/
 
 ===
+<a name="modules"></a>
+## 2. Modules installation and configuration
+#### 2.1. Install webDriver I/O:
+````
+npm i webdriverio
+````
+#### 2.2. Install CLI:
+````
+npm i @wdio/cli
+````
+#### 2.3. Create WebDriver I/O configuration by running:
+````
+./node_modules/.bin/wdio config
+````
+This script runs WDIO Configuration Helper which will help you to create configuration file.
+````
+Where should your tests be launched
+> local
+**click Enter**
+````
+````
+Shall I install the runner plugin for you?
+> type Y
+**click Enter**
+````
+````
+Where is your automation backend located?
+> On my local machine
+**click Enter**
+````
+````
+Which framework do you want to use?
+> mocha
+**click Enter**
+````
+````
+Shall I install the framework adapter for you?
+> type Y
+**click Enter**
+````
+````
+Do you want to run WebdriverIO commands synchronous or asynchronous?
+> sync
+**click Enter**
+````
+````
+Where are your test specs located?
+> type ./test/*.js
+**click Enter**
+````
+````
+Which reporter do you want to use?
+> dot (select by pressing Space)
+> spec (select by pressing Space)
+> allure (select by pressing Space)
+**click Enter**
+````
+````
+Shall I install the reporter library for you?
+> type Y
+**click Enter**
+````
+````
+Do you want to add a service to your test setup?
+> selenium-standalone (select by pressing Space)
+**click Enter**
+````
+````
+Shall I install the services for you?
+> type Y
+**click Enter**
+````
+````
+Level of logging verbosity
+> silent
+**click Enter**
+````
+````
+What is the base url?
+> type https://reactbugtracker.com
+**click Enter**
+````
+Wait till the end of the installation process.
 
+<a name="allure"></a>
+## 3. Configuring Allure reporter:
+#### 3.1. Configure reporter in `wdio.conf.js`:
+Add the following code under `reporters: ['dot','spec','allure'],`:
+````
+    reporterOptions: {
+        allure: {
+            outputDir: 'allure-results'
+        }
+    },
+````
+#### 3.2. Install Allure Commandline globally:
+````
+npm i allure-commandline -g
+````
+<a name="chai"></a>
+## 4. Adding `chai` assertion library:
+#### 4.1. Install `chai` module:
+````
+npm i chai
+````
 <a name="run-command-prompt-and-npm-test"></a>
-##2. Run command prompt and npm test
-#### 2.1. Run Command Prompt 
-#### 2.2. Run `npm test` from Command Prompt
+##5. Run command prompt and npm test
+#### 5.1. Run Command Prompt 
+#### 5.2. Run `npm test` from Command Prompt
 
 
