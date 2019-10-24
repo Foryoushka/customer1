@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "wdio wdio.conf.js",
+    "test": "wdio wdio.conf.js --inspect",
+    "test:main-page": "wdio wdio.conf.js --spec test/specs/main-page.js.js --inspect",
+    "test:careers-page": "wdio wdio.conf.js --spec test/specs/careers-page.js --inspect",
     "report": "allure generate --clean && allure open",
     "clean": "rm -rf allure-results"
   },
