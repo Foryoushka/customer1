@@ -307,8 +307,8 @@ describe('should check footer-bottom', function () {
 describe('should check iframe', function () {
 
     it('should have iframe to be displayed', function () {
-        const ifameIsDisplayed = $(sel.iframe).isDisplayed();
-        expect(ifameIsDisplayed).to.be.true;
+        const iframeIsDisplayed = $(sel.iframe).isDisplayed();
+        expect(iframeIsDisplayed).to.be.true;
     });
 
     it('should switch focus to iframe', function () {
