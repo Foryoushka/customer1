@@ -83,7 +83,7 @@ describe('should check application form', function() {
         $(selCareer.countryField).doubleClick();
         //$(selCareer.countryFieldDropDown).selectByVisibleText(data.user.country);
         $(selCareer.resumeField).doubleClick();
-        const filePath = path.join(__dirname, 'Kate_Boytsova_QAEngineer.docx');// need to write your local path to your file
+        const filePath = path.join(__dirname, 'Kate_Boytsova_QAEngineer.docx');// one needs to write their local path to their file
         const remoteFilePath = browser.uploadFile(filePath);
         //$(selCareer.resumeField).setValue(remoteFilePath);
         $(selCareer.dateField).doubleClick();
